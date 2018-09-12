@@ -3,10 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <title>Key Detection</title>
+  <style>
+      html {
+          background: linear-gradient(35deg, #CCFFFF, #FFCCCC);
+          height: 100%;
+          width:100%;
+      }
+      
+      h1 {
+          text-align: center;
+          font-size: 50px;
+          color:darkslateblue;
+          font-family: monospace;
+          font-weight: 300;
+      }
+    </style>
   <script type="text/javascript" src="http://www.cornify.com/js/cornify.js"></script>
 </head>
 <body>
+    <h1>"CORNY"</h1>
 <script>
+    const pressed = [];
+    const secretCode = "corny";
+    
+    window.addEventListener("keyup", (e) => {
+        pressed.push(e.key);
+        pressed.splice(-secretCode.length - 1, pressed.length - secretCode.length);
+        
+        if (pressed.join("").includes(secretCode)) {
+            cornify_add();
+        }
+    })
 </script>
 </body>
 </html>
